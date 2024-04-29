@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<!-- login.html -->
+<body style="background-color:#E4B295">
+    <form action="/login" method="POST">
+        <h2>登入</h2>
+        <div>
+            <label for="username">帳號：</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">密碼：</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit">登入</button>
+        </div>
+    </form>
+    <script>
+        window.addEventListener('beforeunload', function(event) {
+            // 向後端發送請求記錄登出時間
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/Home/Logout', false); // 注意修改為你的登出路由
+            xhr.send();
+        });
+    </script>
+</body>
+
